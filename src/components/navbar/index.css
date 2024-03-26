@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.bigNav {
+    display: flex;
+    width: 30%;
+    height: 50px;
+    justify-content: space-around;
+    background-color: aqua;
+    /* text-align: center; */
+    /* border: 2px, solid, color(red); */
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #000;
+    border-radius: 25px;
+    margin-left: 35%;
+    margin-right: 30px;
+    /* margin-left: 30%; */
+
+}
+
+.bigNav .link{
+    padding-top: 10px;
+    text-decoration: none;
+}
