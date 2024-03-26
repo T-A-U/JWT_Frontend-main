@@ -1,11 +1,7 @@
-import { UserProvider } from "./auth/auth_context"
+import { UserProvider } from "./auth/auth_context";
 
-function AppProvider({children}) {
-  return (
-    <UserProvider>
-        {children}
-    </UserProvider>
-  )
+function AppProvider({ children }) {
+  return <UserProvider>{children}</UserProvider>;
 }
 
-export default AppProvider
+export default AppProvider;

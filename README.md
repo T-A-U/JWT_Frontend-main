@@ -1,4 +1,5 @@
-## CAPSTONE FRONT END 
+## CAPSTONE FRONT END
+
 (in progress)
 
 To be used with CAPSTONE BACKEND (https://github.com/T-A-U/CAPSTONE-BACKEND)

@@ -1,26 +1,26 @@
-import { useAuth } from '../../contexts/auth/auth_context';
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { useAuth } from "../../contexts/auth/auth_context";
+import { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
 // import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
 const user = {
-  name: 'Tom Cook',
-  email: 'tom@example.com',
+  name: "Tom Cook",
+  email: "tom@example.com",
   imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
-}
+    "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
+};
 const navigation = [
-  { name: 'Profile', href: '#', current: true },
-
-]
+  { name: "Profile", href: "#", current: true },
+  { name: "Logout", href: "#", current: true },
+];
 const userNavigation = [
-  { name: 'Your Profile', href: '#' },
-  { name: 'Settings', href: '#' },
-  { name: 'Sign out', href: '#' },
-]
+  { name: "Your Profile", href: "/profile" },
+  // { name: 'Settings', href: '#' },
+  // { name: 'Sign out', onclick:logout()},
+];
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+  return classes.filter(Boolean).join(" ");
 }
 const Profile = () => {
   const { logout } = useAuth();
@@ -30,16 +30,7 @@ const Profile = () => {
   };
 
   return (
-   
-      <>
-      {/*
-        This example requires updating your template:
-
-        ```
-        <html class="h-full bg-gray-100">
-        <body class="h-full">
-        ```
-      */}
+    <>
       <div className="min-h-full">
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
@@ -62,11 +53,11 @@ const Profile = () => {
                             href={item.href}
                             className={classNames(
                               item.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium'
+                                ? "bg-gray-900 text-white"
+                                : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                              "rounded-md px-3 py-2 text-sm font-medium",
                             )}
-                            aria-current={item.current ? 'page' : undefined}
+                            aria-current={item.current ? "page" : undefined}
                           >
                             {item.name}
                           </a>
@@ -91,7 +82,11 @@ const Profile = () => {
                           <Menu.Button className="relative flex max-w-xs items-center rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                             <span className="absolute -inset-1.5" />
                             <span className="sr-only">Open user menu</span>
-                            <img className="h-8 w-8 rounded-full" src={user.imageUrl} alt="" />
+                            <img
+                              className="h-8 w-8 rounded-full"
+                              src={user.imageUrl}
+                              alt=""
+                            />
                           </Menu.Button>
                         </div>
                         <Transition
@@ -110,8 +105,8 @@ const Profile = () => {
                                   <a
                                     href={item.href}
                                     className={classNames(
-                                      active ? 'bg-gray-100' : '',
-                                      'block px-4 py-2 text-sm text-gray-700'
+                                      active ? "bg-gray-100" : "",
+                                      "block px-4 py-2 text-sm text-gray-700",
                                     )}
                                   >
                                     {item.name}
@@ -124,18 +119,6 @@ const Profile = () => {
                       </Menu>
                     </div>
                   </div>
-                  <div className="-mr-2 flex md:hidden">
-                    {/* Mobile menu button */}
-                    {/* <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md bg-gray-800 p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-0.5" />
-                      <span className="sr-only">Open main menu</span>
-                      {open ? (
-                        <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
-                      ) : (
-                        <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
-                      )}
-                    </Disclosure.Button> */}
-                  </div>
                 </div>
               </div>
 
@@ -147,10 +130,12 @@ const Profile = () => {
                       as="a"
                       href={item.href}
                       className={classNames(
-                        item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                        'block rounded-md px-3 py-2 text-base font-medium'
+                        item.current
+                          ? "bg-gray-900 text-white"
+                          : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                        "block rounded-md px-3 py-2 text-base font-medium",
                       )}
-                      aria-current={item.current ? 'page' : undefined}
+                      aria-current={item.current ? "page" : undefined}
                     >
                       {item.name}
                     </Disclosure.Button>
@@ -159,11 +144,19 @@ const Profile = () => {
                 <div className="border-t border-gray-700 pb-3 pt-4">
                   <div className="flex items-center px-5">
                     <div className="flex-shrink-0">
-                      <img className="h-10 w-10 rounded-full" src={user.imageUrl} alt="" />
+                      <img
+                        className="h-10 w-10 rounded-full"
+                        src={user.imageUrl}
+                        alt=""
+                      />
                     </div>
                     <div className="ml-3">
-                      <div className="text-base font-medium leading-none text-white">{user.name}</div>
-                      <div className="text-sm font-medium leading-none text-gray-400">{user.email}</div>
+                      <div className="text-base font-medium leading-none text-white">
+                        {user.name}
+                      </div>
+                      <div className="text-sm font-medium leading-none text-gray-400">
+                        {user.email}
+                      </div>
                     </div>
                     <button
                       type="button"
@@ -194,51 +187,69 @@ const Profile = () => {
 
         <header className="bg-white shadow">
           <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-            <h1 className="text-3xl font-bold tracking-tight text-gray-900">Profile</h1>
+            <h1 className="text-3xl font-bold tracking-tight text-gray-900">
+              Profile
+            </h1>
           </div>
         </header>
         <main>
-          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">{/* Your content */}</div>
+          <div className="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+            {/* Your content */}
+          </div>
         </main>
       </div>
       <div>
-      {/* <div className="px-4 sm:px-0 ">
+        {/* <div className="px-4 sm:px-0 ">
         <h3 className="text-base font-semibold leading-7 text-gray-900">Applicant Information</h3>
         <p className="mt-1 max-w-2xl text-sm leading-6 text-gray-500">Personal details and application.</p>
       </div> */}
-      <div className="mt-6 border-t border-gray-100 text-left ml-20 mr-20">
-        <dl className="divide-y divide-gray-100">
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Full name</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Margot Foster</dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Application for</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">Backend Developer</dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">Email address</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">margotfoster@example.com</dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+        <div className="mt-6 border-t border-gray-100 text-left ml-20 mr-20">
+          <dl className="divide-y divide-gray-100">
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">
+                Full name
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                {user.name}
+              </dd>
+            </div>
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">
+                Future Position:
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                Software Developer Graduate from PerScholas!
+              </dd>
+            </div>
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">
+                Email address
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                {user.email}
+              </dd>
+            </div>
+            {/* <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">Salary expectation</dt>
             <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">$120,000</dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
-            <dt className="text-sm font-medium leading-6 text-gray-900">About</dt>
-            <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
-              Fugiat ipsum ipsum deserunt culpa aute sint do nostrud anim incididunt cillum culpa consequat. Excepteur
-              qui ipsum aliquip consequat sint. Sit id mollit nulla mollit nostrud in ea officia proident. Irure nostrud
-              pariatur mollit ad adipisicing reprehenderit deserunt qui eu.
-            </dd>
-          </div>
-          <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+          </div> */}
+            <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
+              <dt className="text-sm font-medium leading-6 text-gray-900">
+                About
+              </dt>
+              <dd className="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0">
+                Hello everyone, my name is Tau Adegun. Even though this is a
+                very difficult course, I never give up! I hope I can make you
+                all proud!
+              </dd>
+            </div>
+            {/* <div className="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0">
             <dt className="text-sm font-medium leading-6 text-gray-900">Attachments</dt>
             <dd className="mt-2 text-sm text-gray-900 sm:col-span-2 sm:mt-0">
               <ul role="list" className="divide-y divide-gray-100 rounded-md border border-gray-200">
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
-                    {/* <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" /> */}
+                    <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
                       <span className="truncate font-medium">resume_back_end_developer.pdf</span>
                       <span className="flex-shrink-0 text-gray-400">2.4mb</span>
@@ -252,7 +263,7 @@ const Profile = () => {
                 </li>
                 <li className="flex items-center justify-between py-4 pl-4 pr-5 text-sm leading-6">
                   <div className="flex w-0 flex-1 items-center">
-                    {/* <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" /> */}
+                    <PaperClipIcon className="h-5 w-5 flex-shrink-0 text-gray-400" aria-hidden="true" />
                     <div className="ml-4 flex min-w-0 flex-1 gap-2">
                       <span className="truncate font-medium">coverletter_back_end_developer.pdf</span>
                       <span className="flex-shrink-0 text-gray-400">4.5mb</span>
@@ -266,12 +277,11 @@ const Profile = () => {
                 </li>
               </ul>
             </dd>
-          </div>
-        </dl>
+          </div> */}
+          </dl>
+        </div>
       </div>
-    </div>
     </>
-   
   );
 };
 
