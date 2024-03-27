@@ -28,7 +28,7 @@ const StorePage = () => {
             <h1 className="text-white text-4xl font-bold tracking-tight text-white-900 sm:text-6xl">
               Welcome to GamesStuff.com!
             </h1>
-            <p className="mt-6 text-lg leading-8 text-gray-600">
+            <p className="text-white mt-6 text-lg leading-8 text-gray-600">
             "Send more money, we'll send more stuff!"
             </p>
             
