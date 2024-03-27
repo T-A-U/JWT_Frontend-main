@@ -11,7 +11,7 @@ import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{backgroundImage: "linear-gradient(to right, #4880EC, #FFFFFF)", height: "800px"}}>
       <Navbar />
       <Routes>
         <Route path="/auth" element={<AuthPage />} />

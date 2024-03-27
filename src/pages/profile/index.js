@@ -32,7 +32,7 @@ const Profile = () => {
 
   return (
     <>
-      <div className="min-h-full">
+      <div>
         <Disclosure as="nav" className="bg-gray-800">
           {({ open }) => (
             <>
