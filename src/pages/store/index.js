@@ -1,36 +1,13 @@
-import { useState, useEffect, Link } from "react";
-import { useNavigate } from "react-router-dom/dist";
-
-
-const products = [
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  {
-    id: 1,
-    name: "Basic Tee",
-    href: "#",
-    imageSrc:
-      "https://tailwindui.com/img/ecommerce-images/product-page-01-related-product-01.jpg",
-    imageAlt: "Front of men's Basic Tee in black.",
-    price: "$35",
-    color: "Black",
-  },
-  // More products...
-];
+import { useState, useEffect } from "react";
+import { NavLink, useNavigate } from "react-router-dom/dist";
 
 const StorePage = () => {
     const nav = useNavigate()
   const [games, setGames] = useState([]);
+  const [singleGame, setSingleGame] = useState({});
   useEffect(() => {
     fetchGames();
+    // fetchSingleGame()
   }, []);
 
   const fetchGames = async () => {
@@ -39,11 +16,21 @@ const StorePage = () => {
     setGames(data);
   };
 
+//   const fetchSingleGame = async () => {
+//     const response = await fetch(`http://localhost:5000/${id}`);
+//     const data = await response.json();
+//     setSingleGame(data);
+//   };
+
   async function createGame() {
     nav("/createGame");
     console.log("Creating game")
   }
 
+  const handleClick = async (e) => {
+    e.preventDefault();
+    nav(`/${e.game._id}`);
+  }
  return (
     <div>
       <h1>Welcome to our store</h1>
@@ -51,19 +38,21 @@ const StorePage = () => {
       <div className="bg-white">
       
         <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
-        {/* <button onClick={createGame}>Create New Game</button> */}
-          {/* <h2 className="text-2xl font-bold tracking-tight text-gray-900">Customers also purchased</h2> */}
 
           <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2                   lg:grid-cols-4 xl:gap-x-8">
             {games.map((game) => (
               
-                <div key={game.id} className="group relative">
+                <div key={game._id} className="group relative">
                   <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
-                    <img
-                      src={game.image}
-                      alt={game.imageAlt}
-                      className="h-full w-full object-cover object-center lg:h-full lg:w-full"
-                    />
+                    {/* <NavLink to={`/${game._id}`}> */}
+                        {console.log("GAME ID",game._id )}
+                        <img
+                        src={game.image}
+                        alt={game.imageAlt}
+                        className="h-full w-full object-cover object-center lg:h-full lg:w-full"
+                        onClick={handleClick}
+                        />
+                   {/* </NavLink> */}
                   </div>
                   <div className="mt-4 flex justify-between">
                     <div>
