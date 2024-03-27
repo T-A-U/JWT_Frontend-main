@@ -7,11 +7,11 @@
   width: 30%;
   height: 50px;
   justify-content: space-around;
-  background-color: aqua;
+  background-color: white;
   /* text-align: center; */
   /* border: 2px, solid, color(red); */
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #000;
+  border-top: 1px solid white;
+  border-bottom: 1px solid white;
   border-radius: 25px;
   margin-left: 35%;
   margin-right: 30px;
