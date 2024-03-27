@@ -4,6 +4,7 @@ import AuthPage from "./pages/auth";
 import Profile from "./pages/profile";
 import StorePage from "./pages/store";
 import HomePage from "./pages/home";
+import CreateGame from "./pages/createGame";
 import Navbar from "./components/navbar";
 import ProtectedRoutes from "./components/protectedRoutes/ProtectedRoutes";
 
@@ -17,6 +18,7 @@ function App() {
         <Route path="/store" element={<StorePage />} />
         <Route element={<ProtectedRoutes />}>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/createGame" element={<CreateGame />} />
         </Route>
       </Routes>
     </div>
